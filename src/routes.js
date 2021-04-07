@@ -23,14 +23,14 @@ const dashboardRoutes = [
   {
     path: "/dashboard",
     name: "Vaccine Information",
-    icon: "nc-icon nc-chart-pie-35",
+    icon: "nc-icon nc-ambulance",
     component: Dashboard,
     layout: "/admin",
   },
   {
     path: "/user",
     name: "About Covid19",
-    icon: "nc-icon nc-circle-09",
+    icon: "nc-icon nc-atom",
     component: UserProfile,
     layout: "/admin",
   },
