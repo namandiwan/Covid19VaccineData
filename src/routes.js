@@ -36,7 +36,7 @@ const dashboardRoutes = [
   },
   {
     path: "/table",
-    name: "About us",
+    name: "Vaccine Centres",
     icon: "nc-icon nc-notes",
     component: TableList,
     layout: "/admin",

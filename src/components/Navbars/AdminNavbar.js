@@ -86,7 +86,8 @@ function Header() {
                 onClick={(e) => e.preventDefault()}
               >
                 <i className="nc-icon nc-zoom-split"></i>
-                <span className="d-lg-block"> Search</span>
+                &nbsp;
+                <span className="d-lg-block"> Search</span>
               </Nav.Link>
             </Nav.Item>
           </Nav>
@@ -101,7 +102,7 @@ function Header() {
                 variant="default"
                 className="m-0"
               >
-                <span className="no-icon">Dropdown</span>
+                <span className="no-icon">Covid19 Vaccine Centre Tracker</span>
               </Dropdown.Toggle>
               <Dropdown.Menu aria-labelledby="navbarDropdownMenuLink">
                 <Dropdown.Item
