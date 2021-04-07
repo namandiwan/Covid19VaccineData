@@ -32,12 +32,12 @@ class Footer extends Component {
               </li>
               <li>
                 <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                  About Us
+                  About Covid19
                 </a>
               </li>
             </ul>
             <p className="copyright text-center">
-              © {new Date().getFullYear()}{" "}
+              © {new Date().getFullYear()}{", Covid19 Vaccine Information "}
             </p>
           </nav>
         </Container>
