@@ -1,4 +1,5 @@
-import React from "react";
+import React, {Component} from "react";
+import axios from 'axios';
 
 // react-bootstrap components
 import {
@@ -13,7 +14,21 @@ import {
   Col,
 } from "react-bootstrap";
 
-function TableList() {
+class TableList extends Component{
+  state = {
+    persons: []
+  }
+  componentDidMount() {
+    axios.get(`https://api.apify.com/v2/key-value-stores/toDWvRj1JpTXiM8FF/records/LATEST?disableRedirect=true`)
+      .then(res => {
+        const persons = res.data;
+        this.setState({ persons });
+      })
+  }
+  render(){
+  if (!this.state.persons.regionData) {
+      return <span>Loading...</span>;
+  }
   return (
     <>
       <Container fluid>
@@ -34,42 +49,9 @@ function TableList() {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>Delhi</td>
-                      <td>198,990</td>
-                      <td>89,900</td>
-                      <td>300,000</td>
-                    </tr>
-                    <tr>
-                      <td>Haryana</td>
-                      <td>198,990</td>
-                      <td>89,900</td>
-                      <td>300,000</td>
-                    </tr>
-                    <tr>
-                      <td>Punjab</td>
-                      <td>198,990</td>
-                      <td>89,900</td>
-                      <td>300,000</td>
-                    </tr>
-                    <tr>
-                      <td>Arunachal Pradesh</td>
-                      <td>198,990</td>
-                      <td>89,900</td>
-                      <td>300,000</td>
-                    </tr>
-                    <tr>
-                      <td>Mumbai</td>
-                      <td>198,990</td>
-                      <td>89,900</td>
-                      <td>300,000</td>
-                    </tr>
-                    <tr>
-                      <td>Karnataka</td>
-                      <td>198,990</td>
-                      <td>89,900</td>
-                      <td>300,000</td>
-                    </tr>
+                  {this.state.persons.regionData.map(obj => {
+                  return (<tr><td>{obj.region}</td><td>{obj.recovered}</td><td>{obj.deceased}</td><td>{obj.totalInfected}</td></tr>);
+                  })}
                   </tbody>
                 </Table>
               </Card.Body>
@@ -79,6 +61,7 @@ function TableList() {
       </Container>
     </>
   );
+}
 }
 
 export default TableList;
